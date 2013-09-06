@@ -1,5 +1,13 @@
-define(['jquery', './vendor/load-image', './vendor/canvas-to-blob', './jquery.fileupload'], function ($, loadImage) {
-
+// Uses AMD or browser globals to create a jQuery UI Widget.
+(function (factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define(['jquery', './vendor/load-image', './vendor/canvas-to-blob', './jquery.fileupload'], factory);
+    } else {
+        // Browser globals
+        factory(jQuery, jQuery.loadImage);
+    }
+}(function ($, loadImage) {
 
     /*
      * jQuery File Upload File Processing Plugin 1.2.1
@@ -207,4 +215,4 @@ define(['jquery', './vendor/load-image', './vendor/canvas-to-blob', './jquery.fi
 
     });
 
-});
+}));

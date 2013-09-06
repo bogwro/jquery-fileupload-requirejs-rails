@@ -1,6 +1,13 @@
-define(['jquery', 'jqueryui/widget'], function ($) {
-
-
+// Uses AMD or browser globals to create a jQuery UI Widget.
+(function (factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define(['jquery', 'jqueryui/widget'], factory);
+    } else {
+        // Browser globals
+        factory(jQuery);
+    }
+}(function ($) {
 
     /*
      * jQuery File Upload Plugin 5.21
@@ -1153,4 +1160,4 @@ define(['jquery', 'jqueryui/widget'], function ($) {
 
     });
 
-});
+}));

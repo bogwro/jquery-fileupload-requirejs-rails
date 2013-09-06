@@ -1,5 +1,13 @@
-define(['jquery'], function ($) {
-
+// Uses AMD or browser globals to create a jQuery UI Widget.
+(function (factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define(['jquery'], factory);
+    } else {
+        // Browser globals
+        factory(jQuery);
+    }
+}(function ($) {
 
     /*
      * jQuery Iframe Transport Plugin 1.6.1
@@ -176,4 +184,4 @@ define(['jquery'], function ($) {
         }
     });
 
-});
+}));

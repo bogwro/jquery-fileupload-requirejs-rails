@@ -1,4 +1,13 @@
-define(['jquery', './vendor/tmpl', './vendor/load-image', './jquery.fileupload-fp'], function ($, tmpl, loadImage) {
+// Uses AMD or browser globals to create a jQuery UI Widget.
+(function (factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define(['jquery', './vendor/tmpl', './vendor/load-image', './jquery.fileupload-fp'], factory);
+    } else {
+        // Browser globals
+        factory(jQuery, jQuery.tmpl, jQuery.loadImage);
+    }
+}(function ($, tmpl, loadImage) {
 
     /*
      * jQuery File Upload User Interface Plugin 7.3
@@ -779,4 +788,4 @@ define(['jquery', './vendor/tmpl', './vendor/load-image', './jquery.fileupload-f
 
     });
 
-});
+}));

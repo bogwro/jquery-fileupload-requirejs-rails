@@ -10,20 +10,28 @@
  */
 
 /*global window */
-
-window.locale = {
-    "fileupload": {
-        "errors": {
-            "maxFileSize": "File is too big",
-            "minFileSize": "File is too small",
-            "acceptFileTypes": "Filetype not allowed",
-            "maxNumberOfFiles": "Max number of files exceeded",
-            "uploadedBytes": "Uploaded bytes exceed file size",
-            "emptyResult": "Empty file upload result"
-        },
-        "error": "Error",
-        "start": "Start",
-        "cancel": "Cancel",
-        "destroy": "Delete"
+(function() {
+    var locale = {
+        "fileupload": {
+            "errors": {
+                "maxFileSize": "File is too big",
+                "minFileSize": "File is too small",
+                "acceptFileTypes": "Filetype not allowed",
+                "maxNumberOfFiles": "Max number of files exceeded",
+                "uploadedBytes": "Uploaded bytes exceed file size",
+                "emptyResult": "Empty file upload result"
+            },
+            "error": "Error",
+            "start": "Start",
+            "cancel": "Cancel",
+            "destroy": "Delete"
+        }
+    };
+    if (typeof define === "function" && define.amd) {
+        define(function () {
+            return locale;
+        });
+    } else {
+        window.locale = locale;
     }
-};
+}());
